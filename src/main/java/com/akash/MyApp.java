@@ -59,10 +59,12 @@ public class MyApp implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("hello");
+        if (this == aThread || this == bThread) {
+            System.out.println("hello");
+        }
     }
 
     public static void main(String[] args) {
-        new MyApp();
+        SwingUtilities.invokeLater(new MyApp());
     }
 }
