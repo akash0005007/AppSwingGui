@@ -2,13 +2,18 @@ package com.akash;
 
 import javax.swing.*;
 
-public class Main implements Runnable {
+public class MyApp implements Runnable {
     private JTextField num1TextField;
     private JTextField num2TextField;
     private JTextField resultTextField;
+    private static MyApp aThread, bThread;
+    private char c;
 
-    @Override
-    public void run() {
+    public MyApp(char c) {
+        this.c = c;
+    }
+
+    public MyApp() {
         JFrame frame = new JFrame("Two Sum App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -43,9 +48,21 @@ public class Main implements Runnable {
         frame.add(panel);
         frame.pack();
         frame.setVisible(true);
+        aThread= new MyApp('a');
+        bThread= new MyApp('b');
+        Thread thread = new Thread(aThread);
+        Thread thread1= new Thread(bThread);
+        thread.start();
+        thread1.start();
+    }
+
+
+    @Override
+    public void run() {
+        System.out.println("hello");
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Main());
+        new MyApp();
     }
 }
