@@ -2,8 +2,6 @@ package MyPackage;
 
 import MyPackage.gui.MyGui;
 
-import javax.swing.*;
-
 public class MyApp implements Runnable {
 
     private static MyApp aThread, bThread;
