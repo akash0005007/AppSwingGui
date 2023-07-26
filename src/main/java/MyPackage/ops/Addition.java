@@ -1,61 +1,18 @@
-package MyPackage;
+package MyPackage.ops;
 
 import javax.swing.*;
 
-public class MyApp implements Runnable {
-
-    private static MyApp aThread, bThread;
-    private char c;
-
-    public MyApp(char c) {
-        this.c = c;
-    }
-
-    public MyApp() {
-
-        aThread = new MyApp('a');
-        bThread = new MyApp('b');
-        Thread thread = new Thread(aThread);
-        Thread thread1 = new Thread(bThread);
-        thread.start();
-        thread1.start();
-        new MyGui();
-    }
-
-
-    @Override
-    public void run() {
-        if (this == aThread || this == bThread) {
-            System.out.println("hello");
-        }
-    }
-
-    public static void main(String[] args) {
-        new MyApp();
-    }
-}
-
-class MyGui {
+public class Addition {
     private static JTextField num1TextField;
     private static JTextField num2TextField;
     private static JTextField result1TextField;
 
     private static JButton addButton;
 
-    private static JPanel panel;
+    public static JPanel panel;
 
-    public MyGui() {
-        jFrame();
-
-    }
-
-    public static void jFrame() {
+    public Addition() {
         jPanel();
-        JFrame frame = new JFrame("MyApp");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(panel);
-        frame.pack();
-        frame.setVisible(true);
     }
 
     public static void jPanel() {
