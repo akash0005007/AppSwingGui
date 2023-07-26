@@ -1,6 +1,7 @@
 package MyPackage.gui;
 
 import MyPackage.ops.Addition;
+import MyPackage.ops.Multiplication;
 import MyPackage.ops.Subtraction;
 
 import javax.swing.*;
@@ -25,5 +26,7 @@ public class MyGui {
         frame.add(Addition.panel);
         new Subtraction();
         frame.add(Subtraction.panel);
+        new Multiplication();
+        frame.add(Multiplication.panel);
     }
 }
