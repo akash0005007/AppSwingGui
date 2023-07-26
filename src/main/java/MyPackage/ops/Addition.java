@@ -1,5 +1,7 @@
 package MyPackage.ops;
 
+import MyPackage.MyApp;
+
 import javax.swing.*;
 
 public class Addition {
@@ -34,6 +36,7 @@ public class Addition {
         panel.add(row1);
 
         myEventListener();
+        MyApp.threadB.start();
 
     }
 

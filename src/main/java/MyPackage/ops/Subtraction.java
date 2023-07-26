@@ -1,5 +1,7 @@
 package MyPackage.ops;
 
+import MyPackage.MyApp;
+
 import javax.swing.*;
 
 public class Subtraction {
@@ -34,6 +36,7 @@ public class Subtraction {
         panel.add(row1);
 
         myEventListener();
+        MyApp.threadA.start();
 
     }
 

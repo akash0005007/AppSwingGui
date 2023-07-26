@@ -5,6 +5,8 @@ import MyPackage.gui.MyGui;
 public class MyApp implements Runnable {
 
     private static MyApp aThread, bThread;
+
+    public static Thread threadA,threadB;
     private char c;
 
     public MyApp(char c) {
@@ -15,18 +17,20 @@ public class MyApp implements Runnable {
 
         aThread = new MyApp('a');
         bThread = new MyApp('b');
-        Thread thread = new Thread(aThread);
-        Thread thread1 = new Thread(bThread);
-        thread.start();
-        thread1.start();
+        threadA= new Thread(aThread);
+        threadB  = new Thread(bThread);
+
         new MyGui();
     }
 
 
     @Override
     public void run() {
-        if (this == aThread || this == bThread) {
-            System.out.println("hello");
+        if (this == aThread ) {
+            System.out.println("a thread");
+        }
+        if (this == bThread ) {
+            System.out.println("b thread");
         }
     }
 
