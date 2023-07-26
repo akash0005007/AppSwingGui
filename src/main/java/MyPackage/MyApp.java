@@ -38,26 +38,19 @@ public class MyApp implements Runnable {
 class MyGui {
     private static JTextField num1TextField;
     private static JTextField num2TextField;
-    private static JTextField resultTextField;
+    private static JTextField result1TextField;
 
     private static JButton addButton;
+
+    private static JTextField num3TextField;
+    private static JTextField num4TextField;
+    private static JTextField result2TextField;
+    private static JButton subtractButton;
     private static JPanel panel;
 
     public MyGui() {
         jFrame();
-        // Action listener for the "Add" button
-        addButton.addActionListener(e -> {
-            try {
-                int num1 = Integer.parseInt(num1TextField.getText());
-                int num2 = Integer.parseInt(num2TextField.getText());
-                int result = num1 + num2;
-                resultTextField.setText(Integer.toString(result));
-            } catch (NumberFormatException ex) {
-                resultTextField.setText("Invalid input");
-            }
-        });
-
-
+        myEventListener();
     }
 
     public static void jFrame() {
@@ -71,21 +64,69 @@ class MyGui {
 
     public static void jPanel() {
         myComponents();
+
+        // Create a panel with BoxLayout in Y_AXIS orientation
         panel = new JPanel();
-        panel.add(new JLabel("Number 1:"));
-        panel.add(num1TextField);
-        panel.add(new JLabel("Number 2:"));
-        panel.add(num2TextField);
-        panel.add(addButton);
-        panel.add(new JLabel("Result:"));
-        panel.add(resultTextField);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        // First row
+        JPanel row1 = new JPanel();
+        row1.add(new JLabel("Number 1:"));
+        row1.add(num1TextField);
+        row1.add(new JLabel("Number 2:"));
+        row1.add(num2TextField);
+        row1.add(addButton);
+        row1.add(new JLabel("Result:"));
+        row1.add(result1TextField);
+        panel.add(row1);
+        
+
+        // Third row
+        JPanel row2 = new JPanel();
+        row2.add(new JLabel("Number 1:"));
+        row2.add(num3TextField);
+        row2.add(new JLabel("Number 2:"));
+        row2.add(num4TextField);
+        row2.add(subtractButton);
+        row2.add(new JLabel("Result:"));
+        row2.add(result2TextField);
+        panel.add(row2);
+
+        
     }
 
     public static void myComponents() {
         num1TextField = new JTextField(10);
         num2TextField = new JTextField(10);
-        resultTextField = new JTextField(10);
+        result1TextField = new JTextField(10);
         addButton = new JButton("Add");
+        num3TextField=new JTextField(10);
+        num4TextField= new JTextField(10);
+        result2TextField=new JTextField(10);
+        subtractButton=new JButton("Subtract");
+    }
+
+    public static void myEventListener() {
+        addButton.addActionListener(e -> {
+            try {
+                int num1 = Integer.parseInt(num1TextField.getText());
+                int num2 = Integer.parseInt(num2TextField.getText());
+                int result = num1 + num2;
+                result1TextField.setText(Integer.toString(result));
+            } catch (NumberFormatException ex) {
+                result1TextField.setText("Invalid input");
+            }
+        });
+        subtractButton.addActionListener(e -> {
+            try {
+                int num1 = Integer.parseInt(num3TextField.getText());
+                int num2 = Integer.parseInt(num4TextField.getText());
+                int result = num1 - num2;
+                result2TextField.setText(Integer.toString(result));
+            } catch (NumberFormatException ex) {
+                result1TextField.setText("Invalid input");
+            }
+        });
     }
 
 }
