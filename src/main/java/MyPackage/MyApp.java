@@ -1,6 +1,8 @@
 package MyPackage;
 
 import MyPackage.gui.MyGui;
+import MyPackage.ops.Addition;
+import MyPackage.ops.Subtraction;
 
 public class MyApp implements Runnable {
 
@@ -28,9 +30,11 @@ public class MyApp implements Runnable {
     public void run() {
         if (this == aThread ) {
             System.out.println("a thread");
+            Addition.myEventListener();
         }
         if (this == bThread ) {
             System.out.println("b thread");
+            Subtraction.myEventListener();
         }
     }
 

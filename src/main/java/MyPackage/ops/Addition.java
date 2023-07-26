@@ -34,9 +34,7 @@ public class Addition {
         row1.add(new JLabel("Result:"));
         row1.add(result1TextField);
         panel.add(row1);
-
-        myEventListener();
-        MyApp.threadB.start();
+        MyApp.threadA.start();
 
     }
 

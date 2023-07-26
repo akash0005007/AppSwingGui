@@ -35,8 +35,7 @@ public class Subtraction {
         row1.add(result1TextField);
         panel.add(row1);
 
-        myEventListener();
-        MyApp.threadA.start();
+        MyApp.threadB.start();
 
     }
 
